@@ -1,0 +1,25 @@
+
+.reward-container{
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+.reward-select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+
+.user-section {
+    margin-top: 10px;
+    height: 78vh;
+    max-height: 78vh;
+    overflow-y: auto;
+}
+
+.rewarded-message{
+    color: red;
+}

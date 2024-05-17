@@ -1,0 +1,81 @@
+div {
+  margin: 20px auto;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #25252a;
+}
+
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: white;
+}
+
+
+.autorize-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.error {
+  color: red;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+}
+.autorize-form div {
+  margin-bottom: 15px;
+  width: 80%;
+  border: 1px solid #ccc;
+  
+}
+
+.autorize-form label {
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+    color: white;
+
+}
+
+.autorize-form input[type="text"],
+.autorize-form input[type="password"] {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+.autorize-form button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: #1f5d2f;
+    color: white;
+
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.autorize-form button[type="submit"]:hover {
+  opacity: 0.8;
+}
+.register-button{
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: #38515b;
+    color: white;
+
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.register-button:hover {
+  opacity: 0.8;
+}

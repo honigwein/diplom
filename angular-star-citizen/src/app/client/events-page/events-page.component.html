@@ -1,0 +1,25 @@
+<div class="page-content">
+<app-user-menu></app-user-menu>
+<div class="main-content">
+    <div class="event" *ngFor="let event of events">
+        <div class="main-info">
+            <h2>{{event.name}}</h2>
+            <h3>{{ localDate(event.datetime) }}</h3>
+        </div>
+        <p class="description">{{event.description}}</p>
+        <img [src]="MEDIA_URL + event.image" alt="event_image" />
+        <div class="test">
+            <h3 *ngIf="!isApplied(event)">Ролі:</h3>
+            <a href={{event.link}} target="_blank">Брифінг</a>
+        </div>
+        <div *ngIf="isEventStarted(event)" class="roles-container">
+            <div *ngFor="let role of event.roles">
+                <div *ngIf="!isApplied(event)">
+                    <app-add-button [disabled]="isRoleFull(event, role.id)" text="{{role.role}}" *ngIf="!isApplied(event)" (add)="handleAction()" [data]="{roleId: role.id, eventId: event.id}" endpoint="application/"></app-add-button>
+                </div>
+            </div>
+            <h4 *ngIf="isApplied(event)">Ви вже подали заявку на цю подію</h4>
+        </div>
+    </div>
+</div>
+</div>

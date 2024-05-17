@@ -1,0 +1,5 @@
+<div class="event-roles-list">
+  <button *ngFor="let role of roles" (click)="onRoleClick(role.id)">
+    {{ role.role }}
+  </button>
+</div>

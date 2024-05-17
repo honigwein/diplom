@@ -1,0 +1,21 @@
+.event-roles-list{
+    display: flex;
+    flex-direction: column;
+    max-height: 72vh;
+    overflow-y: auto;
+    button{
+        background-color: #1c4a47;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 5px 10px;
+        cursor: pointer;
+        font-family: Arial, sans-serif;
+        margin-bottom: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        width: 150px;
+        white-space: nowrap;
+        overflow-x: hidden;
+    }
+}

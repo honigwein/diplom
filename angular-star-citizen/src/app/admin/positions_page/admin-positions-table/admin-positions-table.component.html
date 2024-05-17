@@ -1,0 +1,81 @@
+<div class="page-content">
+<app-admin-menu></app-admin-menu>
+<div class="main-content">
+    <div class="search-and-add">
+        <app-search-input (valueChange)="filterData($event)"></app-search-input>
+        <button *ngIf="!showAddPositionForm" (click)="showAddPositionForm = true">Додати посаду</button>
+        <div *ngIf="showAddPositionForm">
+        <app-add-position-form 
+            (onSuccess)="handleAddSuccess()" 
+            (onCancel)="handleAddCancel()">
+        </app-add-position-form>
+        </div>
+    </div>
+    <div class="table-container">
+        <table>
+            <thead class="sticky-header">
+                <tr>
+                    <th style="width: 50vh;">Назва</th>
+                    <th style="width: 30vh;">Вартість</th>
+                    <th style="width: 10vh;">Емодзі</th>
+                    <th style="width: 10vh;">Колір</th>
+                    <th style="width: 10vh;">Дії</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let position of filteredPositions">
+                    <td>
+                        <input *ngIf="editedPositionId === position.id.toString()" type="text" [(ngModel)]="tempPositionChanges.name">
+                        <ng-container *ngIf="editedPositionId !== position.id.toString()">
+                            {{ position.name }}
+                        </ng-container>
+                    </td>
+                    <td>
+                        <input *ngIf="editedPositionId === position.id.toString()" type="number" [(ngModel)]="tempPositionChanges.cost">
+                        <ng-container *ngIf="editedPositionId !== position.id.toString()">
+                            {{ position.cost }}
+                        </ng-container>
+                    </td>
+                    <td>
+                        <div *ngIf="editedPositionId === position.id.toString()">
+                            <button (click)="toggleEmojiMart()">{{tempPositionChanges.emoji}}</button>
+                            <div *ngIf="isEmojiMartOpen" class="emoji-picker">
+                                <emoji-mart [style]="{ position: 'absolute' }" (emojiClick)="handleEmojiSelect($event)"></emoji-mart>
+                            </div>
+                        </div>
+                        <ng-container *ngIf="editedPositionId !== position.id.toString()">
+                            {{ position.emoji }}
+                        </ng-container>
+                    </td>
+                    <td>
+                        <button *ngIf="editedPositionId === position.id.toString()" [(colorPicker)]="tempPositionChanges.color" [ngStyle]="{ 'background-color': position.color, 'width': '100%', 'height': '20px' }"></button>
+                        <ng-container *ngIf="editedPositionId !== position.id.toString()">
+                            <div [ngStyle]="{ 'background-color': position.color, 'width': '100%', 'height': '30px' }" class="color-box"></div>
+                        </ng-container>
+                    </td>
+                    <td>
+                        <ng-container *ngIf="editedPositionId === position.id.toString(); else editButtons">
+                            <app-put-button 
+                                [data]="tempPositionChanges"
+                                endpoint="admin/title/"
+                                (put)="confirmEdit()"
+                                (fail)="handleAction()">
+                            </app-put-button>
+                            <button class="edit-button-cancel" (click)="cancelEdit()">Відмінити</button>
+                        </ng-container>
+                        <ng-template #editButtons>
+                            <button class="edit-button" (click)="editPosition(position)">Змінити</button>
+                            <app-delete-button
+                                [id]="position.id.toString()"
+                                endpoint="admin/title/"
+                                (delete)="handleAction()"
+                                (fail)="handleAction()">
+                            </app-delete-button>
+                        </ng-template>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>

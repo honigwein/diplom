@@ -1,0 +1,28 @@
+<div class="page-content">
+<app-user-menu></app-user-menu>
+<div class="main-content">
+    <div class="search-and-add">
+        <app-search-input (valueChange)="filterData($event)"></app-search-input>
+    </div>
+    <div class="table-container">
+        <table>
+            <thead class="sticky-header">
+                <tr>
+                    <th>Назва</th>
+                    <th>Коштовність</th>
+                    <th style="width: 14vh;"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let reward of filteredRewards">
+                    <td>{{reward.name}}</td>
+                    <td>{{reward.cost}}</td>
+                    <td>
+                        <img [src]="MEDIA_URL + reward.image" alt="Reward Image">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</div>
+</div>
+</div>

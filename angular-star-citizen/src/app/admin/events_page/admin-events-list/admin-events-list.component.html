@@ -1,0 +1,5 @@
+<div class="event-list">
+  <button *ngFor="let event of events" (click)="onEventClick(event.id)" class="event_button">
+    {{ event.name }}
+  </button>
+</div>

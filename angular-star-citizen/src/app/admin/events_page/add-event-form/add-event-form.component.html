@@ -1,0 +1,28 @@
+<form [formGroup]="eventForm" (ngSubmit)="handleSubmit()">
+    <div class="content">
+      <div class="form-fields">
+        <h3>Подія</h3>
+        <label for="name">Назва</label>
+        <input type="text" placeholder="Назва" formControlName="name" [ngClass]="{ 'error': errorField === 'name' }" required />
+        <label for="datetime">Дата і час</label>
+        <input type="datetime-local" placeholder="Дата" formControlName="datetime" [ngClass]="{ 'error': errorField === 'datetime' }"  required />
+        <label for="description">Опис</label>
+        <input type="text" placeholder="Опис" formControlName="description" [ngClass]="{ 'error': errorField === 'description' }" required />
+        <label for="image">Зображення</label>
+        <input type="file" accept="image/*" (change)="handleImageChange($event)" required />
+        <label for="link">Посилання на брифінг</label>
+        <input type="link" placeholder="Посилання" formControlName="link"  [ngClass]="{ 'error': errorField === 'link' }" required />
+        <span>{{error}}</span>
+      </div>
+      <div class="formRolesContainer">
+        <h3>Ролі</h3>
+        <div *ngFor="let role of roles">
+            <label [for]="'role_' + role.id">{{ role.name }}</label>
+            <br />
+            <input type="number" min="0" [value]="getMaxUsers(role.id)" (input)="handleRoleChange(role.id, getEventValue($event))" />
+        </div>
+      </div>
+    </div>
+    <button class="cancel-button" type="button" (click)="handleClose()">Відміна</button>
+    <button class="submit-button" type="submit">Додати</button>
+</form>

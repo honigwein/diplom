@@ -1,0 +1,52 @@
+<div class="page-content">
+<app-admin-menu></app-admin-menu>
+<div class="main-content">
+    <div class="search-and-add">
+        <div></div>
+        <button *ngIf="!showAddRoleForm" (click)="showAddRoleForm = true">Додати роль</button>
+        <div *ngIf="showAddRoleForm">
+        <app-add-role-form 
+            (onSuccess)="handleAddSuccess()" 
+            (onCancel)="handleAddCancel()">
+        </app-add-role-form>
+        </div>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 80vh;">Назва</th>
+                <th style="width: 20vh;">Дії</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let role of roles">
+                <td>
+                    <input *ngIf="editedRoleId === role.id.toString()" type="text" [(ngModel)]="tempRoleChanges.name">
+                    <ng-container *ngIf="editedRoleId !== role.id.toString()">
+                        {{ role.name }}
+                    </ng-container>
+                </td>
+                <td>
+                    <ng-container *ngIf="editedRoleId === role.id.toString(); else editButtons">
+                        <app-put-button 
+                            [data]="tempRoleChanges"
+                            endpoint="admin/roles/"
+                            (put)="confirmEdit()"
+                            (fail)="handleAction()">
+                        </app-put-button>
+                        <button class="edit-button-cancel" (click)="cancelEdit()">Відмінити</button>
+                    </ng-container>
+                    <ng-template #editButtons>
+                        <button class="edit-button" (click)="editRole(role)">Змінити</button>
+                        <app-delete-button
+                            [id]="role.id.toString()"
+                            endpoint="admin/roles/"
+                            (delete)="handleAction()"
+                            (fail)="handleAction()">
+                        </app-delete-button>
+                    </ng-template>
+                </td>
+            </tr>
+    </table>
+</div>
+</div>

@@ -1,0 +1,12 @@
+<form [formGroup]="positionForm" (ngSubmit)="handleSubmit()">
+    <span>{{error}}</span>
+    <input type="text" placeholder="Назва" formControlName="name" [ngClass]="{ 'error': errorField === 'name' }" required />
+    <input type='number' min="1" placeholder='Вартість' formControlName="cost" [ngClass]="{ 'error': errorField === 'cost' }"  required />
+    <input readonly="true" [colorPicker]="positionForm.get('color')?.value" (colorPickerChange)="positionForm.get('color')?.setValue($event)" [style.background]="positionForm.get('color')?.value"/>
+    <button class="emoji-button" type="button" (click)="toggleEmojiMart()">{{positionForm.get('emoji')?.value}}</button>
+    <button class="cancel-button" type="button" (click)="handleClose()">Відмінити</button>
+    <button class="submit-button" type="submit">Додати</button>
+    <div *ngIf="isEmojiMartOpen" class="emoji-picker">
+        <emoji-mart (emojiClick)="handleEmojiSelect($event)"></emoji-mart>
+    </div>
+</form>

@@ -1,0 +1,44 @@
+<div class="page-content">
+  <app-admin-menu></app-admin-menu>
+  <div class="search-and-add">
+    <div></div>
+    <button *ngIf="!showAddEventForm" (click)="showAddEventForm = true">Додати подію</button>
+  </div>
+  <div class="main-content">
+      <div class="events">
+        <div class="events-container">
+            <h3>Події</h3>
+            <app-admin-events-list [events]="events" (eventClick)="handleEventClick($event)"></app-admin-events-list>
+        </div>
+        <div *ngIf="selectedEvent" class="event-control-container">
+            <div class="event-control">
+                <h3>{{selectedEvent.name}}</h3>
+                <app-delete-button
+                [id]="selectedEvent.id.toString()"
+                endpoint="admin/events/"
+                (delete)="handleAction()"
+                (fail)="handleAction()"
+                > </app-delete-button>
+                <h4>Початок</h4>
+                <p>{{localDate(selectedEvent.datetime)}}</p>
+                <h4>Ролі</h4>
+                <app-admin-event-roles-list [roles]="selectedEvent.roles" (roleClick)="handleRoleClick($event)"></app-admin-event-roles-list>
+            </div>
+            <div *ngIf="selectedRole" class="roles-users-container">
+                <h3>Роль: {{selectedRole.role}}</h3>
+                <h4>Заявки на роль: </h4>
+                <app-admin-event-role-users-list class="users-in-role" [event]="selectedEvent" [role]="selectedRole" (confirm)="handleAddSuccess()"></app-admin-event-role-users-list>
+            </div>
+        </div>
+        <div class="event-give-rewards">
+            <app-admin-event-give-rewards [event]="selectedEvent"></app-admin-event-give-rewards>
+        </div>
+      </div>
+      <div *ngIf="showAddEventForm" class="add-event-form">
+        <app-add-event-form 
+          (onSuccess)="handleAddSuccess()" 
+          (onCancel)="handleAddCancel()">
+        </app-add-event-form>
+      </div>
+  </div>
+</div>

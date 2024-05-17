@@ -1,0 +1,31 @@
+<div class="page-content">
+    <div *ngIf="isAdmin">
+    <app-admin-menu></app-admin-menu>
+    </div>
+    <div *ngIf="!isAdmin">
+    <app-user-menu></app-user-menu>
+    </div>
+    <div class="main-content">
+        <div class="search-and-add">
+            <app-search-input (valueChange)="filterData($event)"></app-search-input>
+        </div>
+        <div class="table-container">
+            <table>
+                <thead class="sticky-header">
+                    <tr>
+                        <th style="width: 50vh;">Ім'я</th>
+                        <th style="width: 50vh;">Рейтинг</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let user of filteredRating">
+                        <tr>
+                            <td>{{user.username}}</td>
+                            <td>{{user.reward_cost}}</td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

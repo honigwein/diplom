@@ -1,0 +1,26 @@
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #1b1716;
+  color: #f3f7fb;
+  padding: 10px 0;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
+}
+
+a:hover {
+  background-color: #25252a;
+}
+
+a.active {
+  background-color: #25252a;
+}

@@ -1,0 +1,20 @@
+<div class="page-content">
+<app-user-menu></app-user-menu>
+<div class="main-content">
+    <div *ngIf="!is_hangar_table">
+        <h3>Посада та ім'я</h3>
+        <div class="user-data">
+            <span [style.color]="position_color">{{user_position}}</span>
+            <span>{{username}}</span>
+        </div>
+    </div>
+    <button *ngIf="!is_hangar_table" (click)="changeHangarTable()">Відкрити ангар</button>
+    <div class="hangar-table" *ngIf="is_hangar_table">
+        <div class="hangar-control">
+            <h3>Додати або видалити кораблі з ангару</h3>
+            <button (click)="changeHangarTable()">Закрити ангар</button>
+        </div>
+        <app-hangar-ships-table></app-hangar-ships-table>
+    </div>
+</div>
+</div>

@@ -1,0 +1,41 @@
+<div class="main-content">
+<div class="search-and-add">
+<app-search-input (valueChange)="filterData($event)"></app-search-input>
+</div>
+<div class="table-container">
+
+<table>
+    <thead class="sticky-header">
+        <tr>
+            <th>Назва</th>
+            <th>Опис</th>
+            <th>Ціна</th>
+            <th>Кількість</th>
+            <th></th>
+            <th>Дії</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let ship of filteredShips">
+            <td>{{ ship.name }}</td>
+            <td>
+                <div class="cell-content">
+                {{ ship.description }}
+                </div>
+            </td>
+            <td>{{ ship.price }}</td>
+            <td>{{ ship.count }}</td>
+            <td><img [src]="MEDIA_URL+ship.image" alt="ship.name" width="100"></td>
+            <td>
+                <ng-container *ngIf="isUserShip(ship.id)">
+                    <app-delete-button [id]="ship.id" endpoint="ships/" (delete)="handleAction()"></app-delete-button>
+                </ng-container>
+                <ng-container *ngIf="!isUserShip(ship.id)">
+                    <app-add-button [data]="{id: ship.id}" endpoint="ships/" (add)="handleAction()"></app-add-button>
+                </ng-container>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</div>

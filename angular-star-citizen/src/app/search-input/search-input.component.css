@@ -1,0 +1,8 @@
+.search {
+  display: flex;
+}
+input{
+    border-radius: 8px;
+    border: 1px solid black;
+    height: 21px;
+  }

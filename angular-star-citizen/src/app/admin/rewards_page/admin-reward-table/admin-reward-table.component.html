@@ -1,0 +1,44 @@
+<div class="page-content">
+<app-admin-menu></app-admin-menu>
+<div class="main-content">
+    <div class="search-and-add">
+        <app-search-input (valueChange)="filterData($event)"></app-search-input>
+        <button *ngIf="!showAddShipForm" (click)="showAddShipForm = true">Додати нагороду</button>
+        <div *ngIf="showAddShipForm">
+            <app-add-reward-form 
+                (onSuccess)="handleAddSuccess()" 
+                (onCancel)="handleAddCancel()">
+            </app-add-reward-form>
+        </div>
+    </div>
+    <div class="table-container">
+        <table>
+            <thead class="sticky-header">
+                <tr>
+                    <th>Назва</th>
+                    <th style="width: 20vh;">Коштовність</th>
+                    <th style="width: 14vh;"></th>
+                    <th style="width: 20vh;" >Дії</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let reward of filteredRewards">
+                    <td>{{reward.name}}</td>
+                    <td>{{reward.cost}}</td>
+                    <td>
+                        <img [src]="MEDIA_URL + reward.image" alt="Reward Image">
+                    </td>
+                    <td>
+                        <app-delete-button
+                            [id]="reward.id.toString()"
+                            endpoint="admin/rewards/"
+                            (delete)="handleAction()"
+                            (fail)="handleAction()">
+                        </app-delete-button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>

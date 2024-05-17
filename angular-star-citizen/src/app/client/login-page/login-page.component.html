@@ -1,0 +1,16 @@
+<div>
+  <h2>Авторизація</h2>
+  <form class="autorize-form" (ngSubmit)="login()">
+    <span class="error">{{error}}</span>
+    <div>
+      <label for="username">Ім'я користувача:</label>
+      <input type="text" id="username" name="username" [(ngModel)]="username">
+    </div>
+    <div>
+      <label for="password">Пароль:</label>
+      <input type="password" id="password" name="password" [(ngModel)]="password">
+    </div>
+    <button type="submit">Авторизуватись</button>
+  </form>
+  <button class="register-button" type="button" (click)="register()">Зареєструватись</button>
+</div>

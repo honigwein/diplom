@@ -1,0 +1,64 @@
+.error {
+  border: 2px solid red;
+}
+span {
+  color: red;
+  margin-right: 10px;
+}
+input {
+  margin-right: 10px;
+  border-radius: 8px;
+  height: 22px;
+  border: 1px solid black;
+
+}
+button{
+  margin-right: 10px;
+}
+.cancel-button{
+  background-color: #25252a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  margin-right: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.submit-button{
+  background-color: #1f5d2f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  margin-right: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.submit-button:hover{
+  opacity: 0.8;
+}
+.cancel-button:hover{
+  opacity: 0.8;
+}
+.emoji-button{
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  margin-right: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  border: 1px solid black;
+}
+.emoji-button:hover{
+  background-color: lightgrey;
+}
+emoji-mart{
+  position: absolute;
+  z-index: 1000;
+}

@@ -1,0 +1,51 @@
+.page-content{
+  background-color: #f3f7fb;
+  height: 100vh;
+}
+.hangar-control{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  & button {
+    margin-top: 20px;
+    height: 30px;
+  }
+}
+.user-data{
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  height: 30px;
+  max-width: fit-content;
+  background-color: rgb(175, 175, 175);
+  padding: 8px;
+  border-radius: 8px;
+  & span{
+  margin-top: auto;
+  margin-bottom: auto;
+
+  }
+}
+.main-content {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  & button {
+    margin-top: 30px;
+    background-color: #38515b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    height: 30px;
+
+    font-weight: bold;
+  }
+    & button:hover {
+          opacity: 0.8;
+
+    }
+}

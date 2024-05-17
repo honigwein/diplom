@@ -1,0 +1,16 @@
+button {
+    background-color: #25252a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    margin: 5px;
+    font-weight: bold;
+
+}
+button:hover {
+    opacity: 0.8;
+}

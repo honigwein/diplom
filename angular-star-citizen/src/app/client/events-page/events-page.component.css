@@ -1,0 +1,72 @@
+.page-content{
+  background-color: #f3f7fb;
+  height: 100vh;
+}
+.main-content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-height: 92vh;
+    overflow-y: auto;
+    padding-top: 20px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+.event{
+    background-color: #25252a;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    margin-bottom: 50px;
+    & img {
+        max-width:80%;
+        height: auto;
+    }
+    & .description{
+        width: 80%;
+        text-align: left;
+    }
+    & a {
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        border: 1px solid white;
+        padding: 5px;
+        height: 20px;
+        margin-top: 10px;
+    }
+    & a:hover{
+        background-color: white;
+        color: #000000;
+    }
+}
+.main-info{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 50px;
+    & h3{
+        margin-top: auto;
+    }
+
+}
+.test{
+    width: 80%;
+    margin-top: 20px;
+    display: flex;
+    flex: row;
+    justify-content: space-between;
+
+}
+.roles-container{
+    width: 80%;
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+
+}

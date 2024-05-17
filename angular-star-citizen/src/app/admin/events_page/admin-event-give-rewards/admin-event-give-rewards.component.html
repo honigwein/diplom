@@ -1,0 +1,21 @@
+<div *ngIf="event && !checkRewardsDisabled()" class="reward-container">
+    <h3 class="reward-title">Нагороди за подію</h3>
+    <div>
+        <select (change)="handleRewardClick($event)" class="reward-select">
+            <option value="" disabled selected hidden>Виберіть нагороду</option>
+            <option *ngFor="let reward of rewards" [value]="reward.id">{{reward.name}}</option>
+        </select>
+    </div>
+    <div *ngIf="selectedReward" class="user-section">
+        <div *ngFor="let user of users">
+            <app-add-button 
+                [data]="{userId: user.id, rewardId: selectedReward.id}"
+                endpoint="admin/add_user_reward/"
+                text={{user.username}}
+                class="reward-button"
+                (add)="handleGiveReward()"
+            ></app-add-button>
+            <span *ngIf="userHasReward(user)" class="rewarded-message">Вже є</span>
+        </div>
+    </div>
+</div>

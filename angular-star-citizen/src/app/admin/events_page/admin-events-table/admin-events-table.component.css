@@ -1,0 +1,72 @@
+.page-content{
+  background-color: #f3f7fb;
+}
+.search-and-add{
+    display: flex;
+    justify-content: right;
+    height: 28px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    & button{
+      background-color: #1f5d2f;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-family: Arial, sans-serif;
+      margin-right: 10px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    & button:hover{
+      opacity: 0.8;
+    }
+}
+.main-content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  border-top: 1px solid black;
+}
+
+.events{
+  display: flex;
+  flex-direction: row;
+  margin-left: 20px;
+  width: 100%;
+}
+.event-control-container {
+  margin-left: 50px;
+  width: 50vh;
+  display: flex;
+  flex-direction: row;
+  border-right: 1px solid black;
+
+  & div {
+    padding-right: 50px;
+  }
+  
+}
+.event-control{
+    border-right: 1px solid black;
+    max-width: 205px;
+
+}
+.event-give-rewards{
+  padding-left: 50px;
+  
+}
+.events-container{
+  border-right: 1px solid black;
+  width: 171px;
+}
+.add-event-form{
+  border-left: 1px solid black;
+  padding-left: 50px;
+}
+.roles-users-container{
+  margin-left: 50px;
+}
