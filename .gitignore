@@ -1,0 +1,100 @@
+# Angular related rules
+
+# Angular build files
+/angular-star-citizen/dist/
+/angular-star-citizen/build/
+
+# Dependency directories
+/angular-star-citizen/node_modules/
+
+# Angular environment files
+/angular-star-citizen/src/environments/environment.prod.ts
+/angular-star-citizen/src/environments/environment.ts
+
+# Angular misc files
+/angular-star-citizen/npm-debug.log
+/angular-star-citizen/yarn-error.log
+/angular-star-citizen/package-lock.json
+/angular-star-citizen/yarn.lock
+
+# Django related rules
+
+# Byte-compiled / optimized / DLL files
+/django_project/__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django specific files
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Miscellaneous
+*.swp
+*~
+
+# IDEs and editors
+.idea/
+.vscode/
+
+# Python package
+*.pyc
+*.pyo
+__pycache__/
+
+# Cython debug symbols
+cython_debug/
+
+# Other
+*.log
