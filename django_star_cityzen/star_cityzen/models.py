@@ -103,9 +103,7 @@ def update_ship_count(sender, instance, action, **kwargs):
 
 @receiver(post_delete)
 def delete_image_on_post_delete(sender, instance, **kwargs):
-    # Проверяем, что у модели есть поле изображения
     if hasattr(instance, "image"):
-        # Удаляем связанное изображение при удалении экземпляра модели
         instance.image.delete(False)
 
 

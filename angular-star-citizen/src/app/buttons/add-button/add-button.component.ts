@@ -17,10 +17,10 @@ export class AddButtonComponent implements AddButtonProps {
   @Input() data: any;
   @Input() endpoint: string = '';
   @Input() disabled: boolean = false;
-  @Output() add = new EventEmitter<void>(); // Output event for successful addition
-  @Output() fail = new EventEmitter<void>(); // Output event for failed addition
+  @Output() add = new EventEmitter<void>();
+  @Output() fail = new EventEmitter<void>();
 
-  constructor(private apiService: ApiService) {} // Inject your data service
+  constructor(private apiService: ApiService) {} 
 
   async handleAdd(): Promise<void> {
     try {

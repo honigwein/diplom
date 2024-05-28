@@ -1,1 +1,1 @@
-export const MEDIA_URL = 'http://127.0.0.1:8000';
+export const MEDIA_URL = 'http://141.148.245.77:5005';

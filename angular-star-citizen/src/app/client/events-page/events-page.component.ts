@@ -52,7 +52,8 @@ export class EventsPageComponent implements OnInit, OnDestroy {
     return this.appliedEvents.includes(event.id);
   }
   isRoleFull(event: Event, roleId: string) {
-    const appliedRoles = event.application.filter(application => application.event_role === roleId);
+    const appliedRoles = event.application.filter(application => application.event_role === roleId && application.is_conf === true);
+    console.log(appliedRoles);
     const role = event.roles.find(role => role.id === roleId);
     if (!role) {
       return false;

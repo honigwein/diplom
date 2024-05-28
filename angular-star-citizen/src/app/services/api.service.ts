@@ -7,7 +7,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = "http://127.0.0.1:8000/api/"
+  private apiUrl = "http://141.148.245.77:5005/api/"
 
   constructor(private http: HttpClient) { }
 

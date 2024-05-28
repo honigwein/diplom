@@ -15,7 +15,11 @@ export class AdminEventRoleUsersListComponent {
   isUserConfirmed(user: User): boolean {
     return this.event.application.some((application) => application.user_id === user.id && application.is_conf);
   }
-  isConfirmingDisabled(): boolean {
+  isConfirmingDisabled(user: User): boolean {;
+    const confirmedApplication = this.event.application.filter((application) => application.event_role === this.role.id && application.is_conf);
+    if (confirmedApplication.length >= this.role.max_users && !this.isUserConfirmed(user)) {
+      return true;
+    }
     const event_date_utc = new Date(this.event?.datetime || 0);
     const event_date_local = new Date(event_date_utc.getTime() + event_date_utc.getTimezoneOffset() * 60000);
     const now = new Date();

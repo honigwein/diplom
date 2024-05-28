@@ -30,11 +30,6 @@ class CustomTokenRefreshView(TokenRefreshView):
 
     def post(self, request, *args, **kwargs) -> Response:
         response = super().post(request, *args, **kwargs)
-        if response.status_code == 200:
-            access_token = response.data["access"]
-            response.data["access"] = access_token
-            refresh_token = response.data["refresh"]
-            response.data["refresh"] = refresh_token
         return response
 
 
@@ -285,8 +280,7 @@ class UserApplicationView(APIView):
             role = event.roles.get(pk=role_id)
         except (EventRole.DoesNotExist, Event.DoesNotExist):
             return Response({"message": "Role or Event not found"}, status=status.HTTP_404_NOT_FOUND)
-        if role.application_set.count() >= role.max_users:
-            return Response({"message": "Max users for this role reached"}, status=status.HTTP_400_BAD_REQUEST)
+
         application = Application.objects.create(user=user, event_role=role)
         event.application.add(application)
         return Response(status=status.HTTP_200_OK)

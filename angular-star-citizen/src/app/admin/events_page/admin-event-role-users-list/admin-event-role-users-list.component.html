@@ -1,6 +1,6 @@
 <div class="user-list-in-role">
   <div *ngFor="let user of users" class="user-in-list">
-    <app-add-button [disabled]="isConfirmingDisabled()" [data]="{ eventId: event.id, userId: user.id, roleId: role.id }" endpoint="admin/application_confirm" text={{user.username}} (add)="handleConfirm()">  </app-add-button>
+    <app-add-button [disabled]="isConfirmingDisabled(user)" [data]="{ eventId: event.id, userId: user.id, roleId: role.id }" endpoint="admin/application_confirm" text={{user.username}} (add)="handleConfirm()">  </app-add-button>
     <br>
     <span *ngIf="isUserConfirmed(user)">Підтверджений</span>
   </div>
